@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/lyne-design-system/lyne-figma-listener#readme",
   "dependencies": {
-    "express": "~4.17.1"
+    "dotenv": "~8.2.0",
+    "express": "~4.17.1",
+    "request": "~2.88.2"
   }
 }
