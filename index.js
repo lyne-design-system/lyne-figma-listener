@@ -30,7 +30,8 @@ app.get('/', (req, res) => {
 app.post('/figma-change', (req, res) => {
   triggerTravis();
 
-  res.send('Figma changed')
+  // Figma needs status code 200 as answer
+  res.sendStatus(200);
 })
 
 app.listen(PORT, () => {
