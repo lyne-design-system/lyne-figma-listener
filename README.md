@@ -87,3 +87,4 @@ curl -s -X POST \
 # Todo
 
 - linting
+- enable dependABot
