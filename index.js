@@ -30,11 +30,21 @@ app.get('/', (req, res) => {
 })
 
 app.post('/figma-change', (req, res) => {
-  triggerTravis();
+  const fileName = req.file_name;
+  const passcode = req.passcode;
+  const desiredFileName = process.env.FIGMA_FILE_NAME;
+  const desiredPasscode = process.env.FIGMA_PASSCODE
+  const isCorrectFile = fileName === desiredFileName;
+  const isCorrectPasscode = passcode === desiredPasscode;
 
-  // Figma needs status code 200 as answer
-  // res.sendStatus(200);
-  res.send(req.file_name);
+  if (!isCorrectFile || !isCorrectPasscode) {
+    res.sendStatus(400);
+  } else {
+    triggerTravis();
+
+    // Figma needs status code 200 as answer
+    res.sendStatus(200);
+  }
 })
 
 app.listen(PORT, () => {
