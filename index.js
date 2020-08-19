@@ -18,14 +18,22 @@ const triggerTravis = () => {
     'Authorization': `token ${travisToken}`
   };
 
+  const body = {
+    request: {
+      message: 'Triggered from Figma Library update'
+    }
+  }
+
   request({
     uri: travisUrl,
     method: 'POST',
-    headers: headers
+    headers: headers,
+    body: JSON.stringify(body)
   });
 };
 
 app.get('/', (req, res) => {
+  triggerTravis();
   res.send('Lyne Design System. Simple express server to listen to webhooks send from Figma. Figma webhook will send POST requests to /figma-change');
 })
 
