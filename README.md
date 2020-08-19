@@ -88,3 +88,4 @@ curl -s -X POST \
 
 - linting
 - enable dependABot
+- initially, tried to deploy to vercel. Vercel did create an environment on github which is no longer needed. Find a way to remove it.
