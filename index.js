@@ -24,11 +24,10 @@ const triggerTravis = () => {
 };
 
 app.get('/', (req, res) => {
-
   res.send('Lyne Design System. Simple express server to listen to webhooks send from Figma. Figma webhook will send POST requests to /figma-change');
 })
 
-app.get('/figma-change', (req, res) => {
+app.post('/figma-change', (req, res) => {
   triggerTravis();
 
   res.send('Figma changed')
