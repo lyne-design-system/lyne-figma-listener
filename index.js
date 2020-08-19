@@ -33,7 +33,8 @@ app.post('/figma-change', (req, res) => {
   triggerTravis();
 
   // Figma needs status code 200 as answer
-  res.sendStatus(200);
+  // res.sendStatus(200);
+  res.send(req.file_name);
 })
 
 app.listen(PORT, () => {
