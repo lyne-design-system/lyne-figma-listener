@@ -1,10 +1,13 @@
 const request = require("request");
 const express = require('express');
+const bodyParser = require('body-parser');
 
 require('dotenv').config();
 
 const app = express();
 //app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
 
@@ -41,7 +44,7 @@ app.post('/figma-change', (req, res) => {
   const isCorrectPasscode = req.passcode == process.env.FIGMA_PASSCODE;
 
   console.log('----------------->>>>>>>>>>>>>>>>>>>>>><');
-  console.log(req);
+  console.log(req.body);
   console.log('<<<<<<<<<<<<<<<<<<----------------------');
 
   if (!isCorrectFile || !isCorrectPasscode) {
