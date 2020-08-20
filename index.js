@@ -45,7 +45,8 @@ app.post('/figma-change', (req, res) => {
   const isCorrectPasscode = passcode === desiredPasscode;
 
   if (!isCorrectFile || !isCorrectPasscode) {
-    res.sendStatus(400);
+    //res.sendStatus(400);
+    res.send(JSON.stringify(req))
   } else {
     triggerTravis();
 
