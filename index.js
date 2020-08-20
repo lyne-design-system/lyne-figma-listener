@@ -39,11 +39,9 @@ app.get('/', (req, res) => {
 app.post('/figma-change', (req, res) => {
   const isCorrectFile = req.file_name == process.env.FIGMA_FILE_NAME;
   const isCorrectPasscode = req.passcode == process.env.FIGMA_PASSCODE;
-
+  console.log(req);
   if (!isCorrectFile || !isCorrectPasscode) {
-    //res.sendStatus(400);
-    res.status(400).send(req.file_name)
-
+    res.sendStatus(400);
   } else {
     triggerTravis();
 
