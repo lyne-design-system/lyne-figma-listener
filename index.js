@@ -37,12 +37,8 @@ app.get('/', (req, res) => {
 })
 
 app.post('/figma-change', (req, res) => {
-  const fileName = req.file_name;
-  const passcode = req.passcode;
-  const desiredFileName = process.env.FIGMA_FILE_NAME;
-  const desiredPasscode = process.env.FIGMA_PASSCODE
-  const isCorrectFile = fileName === desiredFileName;
-  const isCorrectPasscode = passcode === desiredPasscode;
+  const isCorrectFile = req.file_name == process.env.FIGMA_FILE_NAME;
+  const isCorrectPasscode = req.passcode == process.env.FIGMA_PASSCODE;
 
   if (!isCorrectFile || !isCorrectPasscode) {
     //res.sendStatus(400);
