@@ -23,7 +23,7 @@ const triggerTravis = () => {
 
   const body = {
     request: {
-      message: 'Triggered from Figma Library update'
+      message: 'fix: Figma library update'
     }
   }
 
