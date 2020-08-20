@@ -20,6 +20,10 @@ Webhooks for Figma are can be defined per Team. Webhooks can only be managed via
 curl -H 'X-FIGMA-TOKEN: TOKEN' 'https://api.figma.com/v2/teams/TEAM-ID/webhooks'
 ```
 
+## Get requests for a specific webhook
+
+curl -H 'X-FIGMA-TOKEN: TOKEN' 'https://api.figma.com/v2/webhooks/WEBHOOK-ID/requests'
+
 ## Delete webhook
 ```bash
 curl -X DELETE -H 'X-FIGMA-TOKEN: TOKEN' 'https://api.figma.com/v2/webhooks/WEBHOOK-ID'
@@ -58,6 +62,13 @@ For the initial deployment, make sure that at least one instance of the app is r
 ```bash
 heroku ps:scale web=1 (scaling... make sure at least one instance of the app is running)
 ```
+
+If you need live logs from all the requests the server is processing, use the following command on the command line:
+
+```bash
+heroku logs --tail
+```
+
 
 ## URL
 
