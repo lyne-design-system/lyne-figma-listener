@@ -40,10 +40,9 @@ app.post('/figma-change', (req, res) => {
   const isCorrectFile = req.file_name == process.env.FIGMA_FILE_NAME;
   const isCorrectPasscode = req.passcode == process.env.FIGMA_PASSCODE;
 
-  console.log(req.file_name);
-  console.log(req.passcode);
-  console.log(process.env.FIGMA_FILE_NAME);
-  console.log(process.env.FIGMA_PASSCODE);
+  console.log('----------------->>>>>>>>>>>>>>>>>>>>>><');
+  console.log(req);
+  console.log('<<<<<<<<<<<<<<<<<<----------------------');
 
   if (!isCorrectFile || !isCorrectPasscode) {
     res.sendStatus(400);
