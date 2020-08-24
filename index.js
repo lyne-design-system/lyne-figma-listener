@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
 
-const triggerTravis = (commitMessage) => {
+const triggerTravis commitMessage
   const travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-design-tokens/requests';
   const travisToken = process.env.TRAVIS_TOKEN;
   const headers = {
@@ -27,7 +27,7 @@ const triggerTravis = (commitMessage) => {
 
   const body = {
     request: {
-      message: `${commitMessage}: Triggered from Figma Library update`
+      message: commitMessage
     }
   }
 
