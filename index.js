@@ -33,14 +33,16 @@ const triggerTravis = (commitMessage, _config) => {
     'Travis-API-Version': '3'
   };
   const config = {
-    env: [`TYPE=${_config}`]
+    env: {
+      jobs: [`TYPE=${_config}`]
+    }
   };
 
   config['before_script'] = `export TYPE=${_config};`;
 
   const body = {
-    config,
     request: {
+      config,
       message: `${commitMessage} (triggered from Figma)`
     }
   };
