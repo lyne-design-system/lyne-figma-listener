@@ -2,13 +2,14 @@
 
 Express server listening to webhooks from Figma.
 
-- The webhook is triggered as soon as the Figma library is changed an published.
-- If received with correct payload, the travis job to build and publish design tokens is triggered. The payload must match the name and passcode defined as env variables.
+- The webhook is triggered as soon as one of the Figma libraries is changed an published.
+- If received with correct payload, the travis job to build and publish design tokens or the the job tho build and publish the icons is triggered. The payload must match one of the file names and passcode defined as env variables.
 - The server listens to POST requests on the route ```figma-change```.
 
 # Env variables
 `TRAVIS_TOKEN`: get it from user account settings on Travis. Used to trigger a build on Travis via API.
-`FIGMA_FILE_NAME`: The name of the library in Figma.
+`FIGMA_FILE_NAME_TOKENS`: The name of the deisgn token library in Figma.
+`FIGMA_FILE_NAME_ICONS`: The name of the icons library in Figma.
 `FIGMA_PASSCODE`: Passcode defined in Figma webhook during creation.
 
 # Figma API
@@ -78,7 +79,11 @@ https://powerful-harbor-93786.herokuapp.com
 
 # CI/CD
 
-After the webhook from Figma (with the correct payload) is received by the server, the Travis job to build and deploy the design tokens is triggered. To test it locally during development, run the following curl command on the command line:
+After the webhook from Figma (with the correct payload) is received by the server, the Travis job to build and deploy the design tokens or icons is triggered. Based on the filename, either the job for design tokens or the job for the icons is triggered.
+
+Important: we pass an env-varaible to the request body. For design tokens, this should be ```TYPE=tokens```. For icons, this should be ```TYPE=icons```
+
+To test it locally during development, run the following curl command on the command line:
 
 ```bash
 body='{
