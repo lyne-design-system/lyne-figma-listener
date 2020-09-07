@@ -15,7 +15,15 @@ app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
 
-const triggerTravis = (commitMessage) => {
+const triggerTravisTokens = (commitMessage) => {
+  triggerTravis(commitMessage, 'tokens');
+};
+
+const triggerTravisIcons = (commitMessage) => {
+  triggerTravis(commitMessage, 'icons');
+};
+
+const triggerTravis = (commitMessage, _config) => {
   const travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-design-tokens/requests';
   const travisToken = process.env.TRAVIS_TOKEN;
   const headers = {
@@ -24,12 +32,18 @@ const triggerTravis = (commitMessage) => {
     'Content-Type': 'application/json',
     'Travis-API-Version': '3'
   };
+  const config = {
+    env: {
+      jobs: [`TYPE=${_config}`]
+    }
+  };
 
   const body = {
+    config,
     request: {
       message: `${commitMessage} (triggered from Figma)`
     }
-  }
+  };
 
   request({
     body: JSON.stringify(body),
@@ -44,13 +58,19 @@ app.get('/', (req, res) => {
 });
 
 app.post('/figma-change', (req, res) => {
-  const isCorrectFile = req.body.file_name === process.env.FIGMA_FILE_NAME;
+  const isFileTokens = req.body.file_name === process.env.FIGMA_FILE_NAME_TOKENS;
+  const isFileIcons = req.body.file_name === process.env.FIGMA_FILE_NAME_ICONS;
   const isCorrectPasscode = req.body.passcode === process.env.FIGMA_PASSCODE;
 
-  if (!isCorrectFile || !isCorrectPasscode) {
+  if (!isFileTokens || !isFileIcons || !isCorrectPasscode) {
     res.sendStatus(400);
   } else {
-    triggerTravis(req.body.description);
+
+    if (isFileTokens) {
+      triggerTravisTokens(req.body.description);
+    } else if (isFileIcons) {
+      triggerTravisIcons(req.body.description);
+    }
 
     // Figma needs status code 200 as answer
     res.sendStatus(200);
