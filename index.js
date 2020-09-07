@@ -15,8 +15,15 @@ app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
 
-const triggerTravis = (commitMessage, _config) => {
-  const travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-design-tokens/requests';
+const triggerTravis = (commitMessage, type) => {
+  let travisUrl;
+
+  if (type === 'tokens') {
+    travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-design-tokens/requests';
+  } else {
+    travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-icons/requests'
+  }
+
   const travisToken = process.env.TRAVIS_TOKEN;
   const headers = {
     'Accept': 'application/json',
@@ -24,15 +31,9 @@ const triggerTravis = (commitMessage, _config) => {
     'Content-Type': 'application/json',
     'Travis-API-Version': '3'
   };
-  const config = {
-    env: {
-      jobs: [`TYPE=${_config}`]
-    }
-  };
 
   const body = {
     request: {
-      config,
       message: `${commitMessage} (triggered from Figma)`
     }
   };
