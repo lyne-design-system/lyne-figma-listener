@@ -38,8 +38,6 @@ const triggerTravis = (commitMessage, _config) => {
     }
   };
 
-  config['before_script'] = `export TYPE=${_config};`;
-
   const body = {
     request: {
       config,
