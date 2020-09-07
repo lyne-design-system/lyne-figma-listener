@@ -33,9 +33,7 @@ const triggerTravis = (commitMessage, _config) => {
     'Travis-API-Version': '3'
   };
   const config = {
-    env: {
-      jobs: [`TYPE=${_config}`]
-    }
+    env: [`TYPE=${_config}`]
   };
 
   config['before_script'] = `export TYPE=${_config};`;
