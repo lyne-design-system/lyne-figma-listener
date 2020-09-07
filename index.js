@@ -15,14 +15,6 @@ app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
 
-const triggerTravisTokens = (commitMessage) => {
-  triggerTravis(commitMessage, 'tokens');
-};
-
-const triggerTravisIcons = (commitMessage) => {
-  triggerTravis(commitMessage, 'icons');
-};
-
 const triggerTravis = (commitMessage, _config) => {
   const travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-design-tokens/requests';
   const travisToken = process.env.TRAVIS_TOKEN;
@@ -68,9 +60,9 @@ app.post('/figma-change', (req, res) => {
   } else {
 
     if (isFileTokens) {
-      triggerTravisTokens(req.body.description);
+      triggerTravis(req.body.description, 'tokens');
     } else if (isFileIcons) {
-      triggerTravisIcons(req.body.description);
+      triggerTravis(req.body.description, 'icons');
     }
 
     // Figma needs status code 200 as answer
