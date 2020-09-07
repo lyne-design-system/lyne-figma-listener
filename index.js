@@ -58,7 +58,6 @@ app.get('/', (req, res) => {
 });
 
 app.post('/figma-change', (req, res) => {
-  console.log(req.body);
   const isFileTokens = req.body.file_name === process.env.FIGMA_FILE_NAME_TOKENS;
   const isFileIcons = req.body.file_name === process.env.FIGMA_FILE_NAME_ICONS;
   const isValidFile = isFileTokens || isFileIcons;
