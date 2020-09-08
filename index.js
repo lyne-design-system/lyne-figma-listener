@@ -15,15 +15,7 @@ app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
 
-const triggerTravis = (commitMessage, type) => {
-  let travisUrl;
-
-  if (type === 'tokens') {
-    travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-design-tokens/requests';
-  } else {
-    travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-icons/requests'
-  }
-
+const triggerTravis = (commitMessage, travisUrl) => {
   const travisToken = process.env.TRAVIS_TOKEN;
   const headers = {
     'Accept': 'application/json',
@@ -60,11 +52,15 @@ app.post('/figma-change', (req, res) => {
     res.sendStatus(400);
   } else {
 
-    if (isFileTokens) {
-      triggerTravis(req.body.description, 'tokens');
-    } else if (isFileIcons) {
-      triggerTravis(req.body.description, 'icons');
+    let travisUrl;
+
+    if (isFileTokens === 'tokens') {
+      travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-design-tokens/requests';
+    } else {
+      travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-icons/requests'
     }
+
+    triggerTravis(req.body.description, travisUrl);
 
     // Figma needs status code 200 as answer
     res.sendStatus(200);
