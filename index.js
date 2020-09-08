@@ -70,6 +70,7 @@ app.post('/figma-change', (req, res) => {
   const isFileIcons = req.body.file_name === process.env.FIGMA_FILE_NAME_ICONS;
   const isValidFile = isFileTokens || isFileIcons;
   const isCorrectPasscode = req.body.passcode === process.env.FIGMA_PASSCODE;
+  const commit = req.body.description;
 
   if (!isValidFile || !isCorrectPasscode) {
     res.sendStatus(400);
@@ -83,10 +84,10 @@ app.post('/figma-change', (req, res) => {
       travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-icons/requests'
     }
 
-    isValidSemanticCommit('chore: bar')
+    isValidSemanticCommit(commit)
       .then((result) => {
         if (result) {
-          triggerTravis(req.body.description, travisUrl);
+          triggerTravis(commit, travisUrl);
 
           // Figma needs status code 200 as answer
           res.sendStatus(200);
