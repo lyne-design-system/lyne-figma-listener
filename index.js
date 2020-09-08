@@ -54,7 +54,7 @@ app.post('/figma-change', (req, res) => {
 
     let travisUrl;
 
-    if (isFileTokens === 'tokens') {
+    if (isFileTokens) {
       travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-design-tokens/requests';
     } else {
       travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-icons/requests'
