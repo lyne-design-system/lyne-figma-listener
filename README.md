@@ -3,7 +3,7 @@
 Express server listening to webhooks from Figma.
 
 - The webhook is triggered as soon as one of the Figma libraries is changed an published.
-- If received with correct payload, the travis job to build and publish design tokens or the the job tho build and publish the icons is triggered. The payload must match one of the file names and passcode defined as env variables.
+- If received with correct payload, the travis job to build and publish design tokens or the the job to build and publish the icons is triggered. The payload must match one of the file names and passcode defined as env variables.
 - The server listens to POST requests on the route ```figma-change```.
 
 # Env variables
@@ -81,9 +81,7 @@ https://powerful-harbor-93786.herokuapp.com
 
 After the webhook from Figma (with the correct payload) is received by the server, the Travis job to build and deploy the design tokens or icons is triggered. Based on the filename, either the job for design tokens or the job for the icons is triggered.
 
-Important: we pass an env-varaible to the request body. For design tokens, this should be ```TYPE=tokens```. For icons, this should be ```TYPE=icons```
-
-To test it locally during development, run the following curl command on the command line:
+To test for example the trigger of Lyne Design Tokens locally during development, run the following curl command on the command line:
 
 ```bash
 body='{
