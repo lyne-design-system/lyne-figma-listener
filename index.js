@@ -2,6 +2,9 @@ const request = require('request');
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const lint = require('@commitlint/lint').default;
+const load = require('@commitlint/load').default;
+
 require('dotenv')
   .config();
 
@@ -38,6 +41,26 @@ const triggerTravis = (commitMessage, travisUrl) => {
   });
 };
 
+const getCommitlintParserOptions = (opts) => {
+  if (opts.parserPreset) {
+    return {
+      parserOpts: opts.parserPreset.parserOpts
+    }
+  }
+
+  return {};
+};
+
+const isValidSemanticCommit = (commit) => {
+  const config = {
+    extends: ['@commitlint/config-conventional']
+  };
+
+  return load(config)
+    .then((opts) => lint(commit, opts.rules, getCommitlintParserOptions(opts)))
+    .then((report) => report.valid);
+};
+
 app.get('/', (req, res) => {
   res.send('Lyne Design System. Simple express server to listen to webhooks send from Figma. Figma webhook will send POST requests to /figma-change');
 });
@@ -60,10 +83,17 @@ app.post('/figma-change', (req, res) => {
       travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-icons/requests'
     }
 
-    triggerTravis(req.body.description, travisUrl);
+    isValidSemanticCommit('chore: bar')
+      .then((result) => {
+        if (result) {
+          triggerTravis(req.body.description, travisUrl);
 
-    // Figma needs status code 200 as answer
-    res.sendStatus(200);
+          // Figma needs status code 200 as answer
+          res.sendStatus(200);
+        } else {
+          res.sendStatus(400);
+        }
+      });
   }
 });
 
