@@ -74,7 +74,10 @@ app.post('/figma-change', (req, res) => {
             .then(() => {
               // Figma needs status code 200 as answer
               res.sendStatus(200);
-          });
+            })
+            .catch(() => {
+              res.sendStatus(400);
+            });
         } else {
           res.sendStatus(400);
         }
