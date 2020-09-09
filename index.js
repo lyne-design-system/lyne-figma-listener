@@ -1,6 +1,7 @@
 const request = require('request');
 const express = require('express');
 const bodyParser = require('body-parser');
+const triggerTravis = require('lyne-helper-trigger-travis');
 
 const lint = require('@commitlint/lint').default;
 const load = require('@commitlint/load').default;
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
 
+/*
 const triggerTravis = (commitMessage, travisUrl) => {
   const travisToken = process.env.TRAVIS_TOKEN;
   const headers = {
@@ -40,6 +42,7 @@ const triggerTravis = (commitMessage, travisUrl) => {
     uri: travisUrl
   });
 };
+*/
 
 const getCommitlintParserOptions = (opts) => {
   if (opts.parserPreset) {
@@ -87,10 +90,17 @@ app.post('/figma-change', (req, res) => {
     isValidSemanticCommit(commit)
       .then((result) => {
         if (result) {
-          triggerTravis(commit, travisUrl);
 
-          // Figma needs status code 200 as answer
-          res.sendStatus(200);
+          triggerTravis({
+            branchName: 'master',
+            message: `${commit} (triggered from Figma)`,
+            travisToken: process.env.TRAVIS_TOKEN,
+            travisUrl
+          })
+            .then(() => {
+              // Figma needs status code 200 as answer
+              res.sendStatus(200);
+          });
         } else {
           res.sendStatus(400);
         }
