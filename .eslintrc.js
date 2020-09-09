@@ -1,15 +1,21 @@
 module.exports = {
-  env: {
-    browser: true,
-    commonjs: true,
-    es2020: true,
-  },
-  parserOptions: {
-    ecmaVersion: 11,
-  },
-  globals: {
-    'process': 'readonly'
-  },
+    env: {
+      browser: true,
+      es6: true
+    },
+    parserOptions: {
+      ecmaVersion: 2018,
+      sourceType: 'module'
+    },
+    globals: {
+      'require': 'readonly',
+      'module': 'readonly',
+      'process': 'readonly',
+      '__dirname': 'readonly'
+    },
+    plugins: [
+      'yaml'
+    ],
   rules: {
     // ####################################################
     // Possible errors
@@ -147,14 +153,14 @@ module.exports = {
     'no-undef': 'error',
     'no-undef-init': 'error',
     'no-undefined': 'off',
-    'no-unused-vars': 'off',
-    'no-use-before-define': 'off',
+    'no-unused-vars': 'error',
+    'no-use-before-define': 'error',
 
     // ####################################################
     // Node.js
     // ####################################################
     'callback-return': 'error',
-    'global-require': 'error',
+    'global-require': 'off',
     'handle-callback-err': 'error',
     'no-buffer-constructor': 'error',
     'no-mixed-requires': 'error',
@@ -277,10 +283,10 @@ module.exports = {
     'template-tag-spacing': 'error',
     'unicode-bom': 'error',
     'wrap-regex': 'error',
-    'indent': 'off',
-    'semi': 'off',
-    'camelcase': 'off',
-    'no-array-constructor': 'off',
+    'indent': ["error", 2],
+    'semi': 'error',
+    'camelcase': 'error',
+    'no-array-constructor': 'error',
 
     // ####################################################
     // ECMAScript 6
