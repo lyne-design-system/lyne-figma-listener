@@ -1,4 +1,3 @@
-const request = require('request');
 const express = require('express');
 const bodyParser = require('body-parser');
 const triggerTravis = require('lyne-helper-trigger-travis');
@@ -18,31 +17,6 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
-
-/*
-const triggerTravis = (commitMessage, travisUrl) => {
-  const travisToken = process.env.TRAVIS_TOKEN;
-  const headers = {
-    'Accept': 'application/json',
-    'Authorization': `token ${travisToken}`,
-    'Content-Type': 'application/json',
-    'Travis-API-Version': '3'
-  };
-
-  const body = {
-    request: {
-      message: `${commitMessage} (triggered from Figma)`
-    }
-  };
-
-  request({
-    body: JSON.stringify(body),
-    headers,
-    method: 'POST',
-    uri: travisUrl
-  });
-};
-*/
 
 const getCommitlintParserOptions = (opts) => {
   if (opts.parserPreset) {
