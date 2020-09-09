@@ -22,7 +22,7 @@ const getCommitlintParserOptions = (opts) => {
   if (opts.parserPreset) {
     return {
       parserOpts: opts.parserPreset.parserOpts
-    }
+    };
   }
 
   return {};
@@ -58,7 +58,7 @@ app.post('/figma-change', (req, res) => {
     if (isFileTokens) {
       travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-design-tokens/requests';
     } else {
-      travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-icons/requests'
+      travisUrl = 'https://api.travis-ci.org/repo/lyne-design-system%2Flyne-icons/requests';
     }
 
     isValidSemanticCommit(commit)
@@ -87,4 +87,4 @@ app.post('/figma-change', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Listening to http://localhost:${PORT}.`);
-})
+});

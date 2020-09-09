@@ -1,21 +1,18 @@
 module.exports = {
-    env: {
-      browser: true,
-      es6: true
-    },
-    parserOptions: {
-      ecmaVersion: 2018,
-      sourceType: 'module'
-    },
-    globals: {
-      'require': 'readonly',
-      'module': 'readonly',
-      'process': 'readonly',
-      '__dirname': 'readonly'
-    },
-    plugins: [
-      'yaml'
-    ],
+  env: {
+    browser: true,
+    es6: true
+  },
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'module'
+  },
+  globals: {
+    'require': 'readonly',
+    'module': 'readonly',
+    'process': 'readonly',
+    '__dirname': 'readonly'
+  },
   rules: {
     // ####################################################
     // Possible errors
@@ -327,5 +324,5 @@ module.exports = {
     'symbol-description': 'error',
     'template-curly-spacing': 'error',
     'yield-star-spacing': 'error',
-  },
+  }
 };
