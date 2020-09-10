@@ -28,6 +28,7 @@
     "lyne-helper-trigger-travis": "~1.0.1"
   },
   "devDependencies": {
-    "eslint": "~7.7.0"
+    "eslint": "~7.7.0",
+    "lyne-helper-eslint-config": "~1.0.1"
   }
 }
