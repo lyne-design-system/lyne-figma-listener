@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lyne-design-system/lyne-figma-listener.svg?branch=master)](https://travis-ci.org/lyne-design-system/lyne-figma-listener) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/lyne-design-system/lyne-figma-listener?label=release)
+
 # About
 
 Express server listening to webhooks from Figma.
@@ -37,9 +39,9 @@ curl -X POST -H 'X-FIGMA-TOKEN: TOKEN' -H "Content-Type: application/json" 'http
 
 # Express Server
 
-The express server is hosted on Heroku. If you use Heroku for the first time, install the cli tool first and login after installation:
+The express server is hosted on Heroku. If you use Heroku for the first time and want to test it locally, install the cli tool first and login after installation:
 
-## Setup and develop
+## Setup and develop locally
 
 ```bash
 npm install -g heroku
@@ -77,6 +79,10 @@ The deployed server is running under:
 
 https://powerful-harbor-93786.herokuapp.com
 
+## Deployment
+
+The Server is automatically deployed on Heroku via Travis CI as soon as changes are pushed to git.
+
 # CI/CD
 
 After the webhook from Figma (with the correct payload) is received by the server, the Travis job to build and deploy the design tokens or icons is triggered. Based on the filename, either the job for design tokens or the job for the icons is triggered.
@@ -97,8 +103,3 @@ curl -s -X POST \
    -d "$body" \
    https://api.travis-ci.org/repo/lyne-design-system%2Flyne-design-tokens/requests
 ```
-
-# Todo
-
-- enable dependABot
-- initially, tried to deploy to vercel. Vercel did create an environment on github which is no longer needed. Find a way to remove it.
