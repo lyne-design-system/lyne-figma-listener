@@ -17,7 +17,7 @@ notifications:
     template:
       # This template config somehow breaks yaml syntax
       # in the editor although it is valid yaml syntax
-      - "Project: lyne-icons"
+      - "Project: lyne-figma-listener"
       - "Build: <%{build_url}|%{build_number}>"
       - "Commit: <%{compare_url}|%{commit}>"
       - "Author: %{author}"
