@@ -6,5 +6,7 @@ deploy:
   provider: heroku
   app: powerful-harbor-93786
   strategy: git
+  on:
+    repo: lyne-design-system/lyne-figma-listener
   api_key:
     secure: KcnZ8rHp/qc7u2N2s0VM0dHwRW71A6JSz2vYRpChUTjS3W8tJdE1W+WtQrNaikU1qmKWYW2JzHUOLd84b2D5B78/VcVeWf5BmVZI0hzETMgW4b+R7ddB6WmjmaF+9Y9eZkWoSi1KNNp1k00JjhGup78LcULYJdQTjOVCcFLQiLXGyMtfQ8pXQydNyT/iH/pH2dR8odDrMdTaDJE1bcJ8MthttH/LC3F6b6uw7me1QNuPSwhlvM0x+r3V59fdBLik8mDDVtnjkb5ORo0AAMvfPmzrGiuuUR/R98PCjlLs2gqy27plNKKlNuVYHXiXlAy3aFKkd/nQAhCAyoRsOS5eIOmbQzN5ntpfZurCon2E+A5bjQ+grKha00edp3hhp59u8TIkMeGNUa/KOYn0iP77Jcls7kRU1vwWrVk/9cAPPI6YiFnk41q2RdoluEXdV0w2LCm+3q7TLKawVtQ5nokXSjkiPo+6/6aiJLwpV1hlB25Axq8wr+2/xdmAcwQDUtsuBcLv9KRJ5gwSLVD1jSdEP/aE0w/51sZM9FsKWFBcTcC868MYMsF4Ch2CwX3EfTeE6jRNYqjt0w4y7QU303RpzSnEP3vAUxLElKoWdSG+f9BVeh2aop4YmLpibaOGPHZO3DzQwjzATmZD+fGj6XVBeoQc6IGu0v5BGAoWOcDPpc8=
