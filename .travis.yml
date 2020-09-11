@@ -9,6 +9,9 @@ deploy:
   on:
     repo: lyne-design-system/lyne-figma-listener
   api_key: $HEROKU_TOKEN
+after_deploy:
+  script:
+    - npm run semantic-release
 notifications:
   slack:
     template:
