@@ -9,3 +9,14 @@ deploy:
   on:
     repo: lyne-design-system/lyne-figma-listener
   api_key: $HEROKU_TOKEN
+notifications:
+  slack:
+    template:
+      # This template config somehow breaks yaml syntax
+      # in the editor although it is valid yaml syntax
+      - "Project: lyne-icons"
+      - "Build: <%{build_url}|%{build_number}>"
+      - "Commit: <%{compare_url}|%{commit}>"
+      - "Author: %{author}"
+      - "Result: %{result} in %{duration}"
+    secure: dvDoP/7AwPdVmQzZAzLw5PupFvPyOS9dwrqXtorA6imbEjHKJxyCMtmQwfPf242puwuiiQ/vKBKiiE1WUceeZYEqoWfqv2Mq/yjGxW2X+PrdgQrVPB2OU/naZH1FUqPO2E9ft0OHnhoyjada8iUZGkgqP9QHEFkhOyeIt24I9/dgN8P8XoIqsF5lN5IK4sOaf1JFEhOCT2+O2hPEbDcIcIv8m+XupElE75UU14qo13BJuOVUi5EJ1qq51rn54SE/484ZOG7ieX3J7UseVJQH0AOKJSxrK/UVi5OSZUhJWdcT2TUazhmi7xIGHGbHBHIgIWFiyh9ibSWj4MYVR7RpZOEPGaGXTQSr1F7bxhkBceEEJ5f/sGnSnYpNiAG+zEJmHRVIO+IhQ699ZHCxab+LY2aWnTZZ8zAvgOFLNxH9NFthhNX8h0R0CWmXhBMxbLm47RzSER7F5hAVuYFfgVFgunuEIGKfZ2wUTml8BDZnU8sinlnlnq7M5pH54xUgF13Yqeplx0dZdUZmji843qSSm5nBDOUyp1OfQXcmUkGa7bCSsu+Uk3bgoCrdP5F8EJnlTSGF9P9G30tn1nII1JCRol8C3cXgbiANBe+kckcSQCdC0+bkXjAYiP2eWmp9rL1kU9Sc5vPZFWwkw/DGFwrm4lqRJt0yV4Yp1gqAoviW/u4=
