@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint ./ --ext .js",
+    "lint": "npm run lint:yml && npm run lint:js",
+    "lint:js": "eslint ./ --ext .js",
+    "lint:yml": "eslint ./ --ext .yml,.yaml",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
@@ -29,6 +31,7 @@
   },
   "devDependencies": {
     "eslint": "~7.7.0",
+    "eslint-plugin-yaml": "~0.3.0",
     "lyne-helper-eslint-config": "~1.0.1"
   }
 }

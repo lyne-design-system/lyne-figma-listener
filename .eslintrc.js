@@ -7,4 +7,6 @@ baseConfig.globals = {
   require: 'readonly'
 };
 
+baseConfig.plugins = ['yaml'];
+
 module.exports = baseConfig;
