@@ -4,6 +4,7 @@
 
 Express server listening to webhooks from Figma.
 
+
 - The webhook is triggered as soon as one of the Figma libraries is changed an published.
 - If received with correct payload, the travis job to build and publish design tokens or the the job to build and publish the icons is triggered. The payload must match one of the file names and passcode defined as env variables.
 - The server listens to POST requests on the route ```figma-change```.
