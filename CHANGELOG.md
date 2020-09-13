@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.0...v1.0.1) (2020-09-13)
+
+
+### Bug Fixes
+
+* update deps ([21db3cf](https://github.com/lyne-design-system/lyne-figma-listener/commit/21db3cfb56664fd54e8d19219739684dc350124e))
+
 # 1.0.0 (2020-09-11)
 
 
