@@ -27,7 +27,7 @@
     "body-parser": "~1.19.0",
     "dotenv": "~8.2.0",
     "express": "~4.17.1",
-    "lyne-helper-trigger-travis": "~1.0.2"
+    "lyne-helper-trigger-travis": "~1.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "~9.1.2",
