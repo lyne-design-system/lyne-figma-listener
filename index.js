@@ -35,7 +35,10 @@ const isValidSemanticCommit = (commit) => {
 
   return load(config)
     .then((opts) => lint(commit, opts.rules, getCommitlintParserOptions(opts)))
-    .then((report) => report.valid);
+    .then((report) => report.valid)
+    .catch((error) => {
+      throw new Error(`Error in linting: ${error}`);
+    });
 };
 
 app.get('/', (req, res) => {
@@ -76,11 +79,17 @@ app.post('/figma-change', (req, res) => {
               res.sendStatus(200);
             })
             .catch(() => {
+              console.log('Error in Triggering Travis');
               res.sendStatus(400);
             });
         } else {
+          console.log('Is not a valid commit:');
+          console.log(commit);
           res.sendStatus(400);
         }
+      })
+      .catch((error) => {
+        throw new Error(`Error in triggering Travis: ${error}`);
       });
   }
 });
