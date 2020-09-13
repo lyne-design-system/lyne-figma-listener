@@ -52,10 +52,14 @@ app.post('/figma-change', (req, res) => {
   const isCorrectPasscode = req.body.passcode === process.env.FIGMA_PASSCODE;
   const commit = req.body.description;
 
+  console.log('1. start');
+  console.log('body:');
+  console.log(req.body);
+
   if (!isValidFile || !isCorrectPasscode) {
     res.sendStatus(400);
   } else {
-
+    console.log('2. valid file');
     let travisUrl;
 
     if (isFileTokens) {
@@ -67,7 +71,7 @@ app.post('/figma-change', (req, res) => {
     isValidSemanticCommit(commit)
       .then((result) => {
         if (result) {
-
+          console.log('3. is valid commit');
           triggerTravis({
             branchName: 'master',
             message: `${commit} (triggered from Figma)`,
@@ -75,6 +79,7 @@ app.post('/figma-change', (req, res) => {
             travisUrl
           })
             .then(() => {
+              console.log('4. did trigger travis');
               // Figma needs status code 200 as answer
               res.sendStatus(200);
             })
