@@ -71,6 +71,7 @@ app.post('/figma-change', (req, res) => {
     isValidSemanticCommit(commit)
       .then((result) => {
         if (result) {
+
           console.log('3. is valid commit');
           triggerTravis({
             branchName: 'master',
