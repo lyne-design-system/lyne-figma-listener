@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.2...v1.0.3) (2020-09-13)
+
+
+### Bug Fixes
+
+* make sure that erors are catched on promise rejection ([22e78ac](https://github.com/lyne-design-system/lyne-figma-listener/commit/22e78ac29cbf8ab5e040a7b494768e2a60ca3043))
+
 ## [1.0.2](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.1...v1.0.2) (2020-09-13)
 
 
