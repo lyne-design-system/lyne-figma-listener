@@ -1,3 +1,12 @@
+## [1.0.4](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.3...v1.0.4) (2020-09-13)
+
+
+### Bug Fixes
+
+* fake commit to trigger release ([cd73b42](https://github.com/lyne-design-system/lyne-figma-listener/commit/cd73b42a730b521675737c3d784b8fd7958e1930))
+* move deps ([fe51d4e](https://github.com/lyne-design-system/lyne-figma-listener/commit/fe51d4e97b2fa18ca032dd68d52aab845592daad))
+* move deps ([612f524](https://github.com/lyne-design-system/lyne-figma-listener/commit/612f52420265f604d966e0463b0a88b3ac4a54cb))
+
 ## [1.0.3](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.2...v1.0.3) (2020-09-13)
 
 
