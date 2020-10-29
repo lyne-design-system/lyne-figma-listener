@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.4...v1.0.5) (2020-10-29)
+
+
+### Bug Fixes
+
+* use com instead of org for travis url ([d69d5aa](https://github.com/lyne-design-system/lyne-figma-listener/commit/d69d5aa1a1d8372931471fd9f0d0640ecad0526c))
+
 ## [1.0.4](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.3...v1.0.4) (2020-09-13)
 
 
