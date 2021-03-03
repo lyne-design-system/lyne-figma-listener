@@ -38,7 +38,7 @@
     "eslint-plugin-yaml": "~0.3.0",
     "husky": "~4.3.0",
     "lyne-helper-eslint-config": "~1.0.4",
-    "semantic-release": "~17.2.3",
+    "semantic-release": "~17.4.0",
     "semantic-release-slack-bot": "~1.6.2"
   }
 }
