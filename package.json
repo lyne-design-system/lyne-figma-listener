@@ -24,7 +24,7 @@
   "dependencies": {
     "@commitlint/cli": "~9.1.2",
     "@commitlint/config-conventional": "~9.1.2",
-    "@commitlint/lint": "~9.1.2",
+    "@commitlint/lint": "~12.0.1",
     "@commitlint/load": "~9.1.2",
     "body-parser": "~1.19.0",
     "dotenv": "~8.2.0",
