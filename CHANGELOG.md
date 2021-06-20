@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.5...v1.0.6) (2021-06-20)
+
+
+### Bug Fixes
+
+* make build fail if step fails ([a1e5aa0](https://github.com/lyne-design-system/lyne-figma-listener/commit/a1e5aa0a22119bc707637a5e2492d25ccd02bd67))
+
 ## [1.0.5](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.4...v1.0.5) (2020-10-29)
 
 
