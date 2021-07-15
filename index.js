@@ -46,16 +46,14 @@ app.get('/', (req, res) => {
 });
 
 app.post('/figma-change', (req, res) => {
-  console.log(req.body);
   const isFileTokens = req.body.file_name === process.env.FIGMA_FILE_ID_TOKENS;
   const isFileIcons = req.body.file_name === process.env.FIGMA_FILE_ID_ICONS;
   const isValidFile = isFileTokens || isFileIcons;
   const isCorrectPasscode = req.body.passcode === process.env.FIGMA_PASSCODE;
   const commit = req.body.description;
 
-  console.log(req.body);
-
   if (!isValidFile || !isCorrectPasscode) {
+    console.log('Either wrong Figma passcode or wrong file key');
     res.sendStatus(400);
   } else {
     let travisUrl;
