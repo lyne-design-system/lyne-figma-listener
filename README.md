@@ -10,8 +10,8 @@ Express server listening to webhooks from Figma.
 
 # Env variables
 `TRAVIS_TOKEN`: get it from user account settings on Travis. Used to trigger a build on Travis via API.
-`FIGMA_FILE_NAME_TOKENS`: The name of the deisgn token library in Figma.
-`FIGMA_FILE_NAME_ICONS`: The name of the icons library in Figma.
+`FIGMA_FILE_ID_TOKENS`: The name of the deisgn token library in Figma.
+`FIGMA_FILE_ID_ICONS`: The name of the icons library in Figma.
 `FIGMA_PASSCODE`: Passcode defined in Figma webhook during creation.
 
 # Figma API
