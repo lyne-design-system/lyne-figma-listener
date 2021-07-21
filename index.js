@@ -47,8 +47,6 @@ app.get('/', (req, res) => {
 
 app.post('/figma-change', (req, res) => {
 
-  console.log(req);
-
   const isFileTokens = req.body.file_key === process.env.FIGMA_FILE_ID_TOKENS;
   const isFileIcons = req.body.file_key === process.env.FIGMA_FILE_ID_ICONS;
   const isValidFile = isFileTokens || isFileIcons;
@@ -62,8 +60,10 @@ app.post('/figma-change', (req, res) => {
     let travisUrl;
 
     if (isFileTokens) {
+      console.log('Will trigger travis job for design tokens');
       travisUrl = 'https://api.travis-ci.com/repo/lyne-design-system%2Flyne-design-tokens/requests';
     } else {
+      console.log('Will trigger travis job for icons');
       travisUrl = 'https://api.travis-ci.com/repo/lyne-design-system%2Flyne-icons/requests';
     }
 
