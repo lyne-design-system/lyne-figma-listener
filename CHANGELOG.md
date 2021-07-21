@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.7...v1.0.8) (2021-07-21)
+
+
+### Bug Fixes
+
+* use file key instead of file name ([dd5e897](https://github.com/lyne-design-system/lyne-figma-listener/commit/dd5e8973dce7627293299d328f9695599b1ea005))
+
 ## [1.0.7](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.6...v1.0.7) (2021-07-15)
 
 
