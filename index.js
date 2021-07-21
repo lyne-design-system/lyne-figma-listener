@@ -49,8 +49,8 @@ app.post('/figma-change', (req, res) => {
 
   console.log(req);
 
-  const isFileTokens = req.body.file_name === process.env.FIGMA_FILE_ID_TOKENS;
-  const isFileIcons = req.body.file_name === process.env.FIGMA_FILE_ID_ICONS;
+  const isFileTokens = req.body.file_key === process.env.FIGMA_FILE_ID_TOKENS;
+  const isFileIcons = req.body.file_key === process.env.FIGMA_FILE_ID_ICONS;
   const isValidFile = isFileTokens || isFileIcons;
   const isCorrectPasscode = req.body.passcode === process.env.FIGMA_PASSCODE;
   const commit = req.body.description;
