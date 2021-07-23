@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.8...v1.0.9) (2021-07-23)
+
+
+### Bug Fixes
+
+* remove req log, add log about which job is triggered ([8912567](https://github.com/lyne-design-system/lyne-figma-listener/commit/8912567b2981c43734f08d74d1cedee662c88c11))
+
 ## [1.0.8](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.7...v1.0.8) (2021-07-21)
 
 
