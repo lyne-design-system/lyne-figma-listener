@@ -6,6 +6,7 @@ arch: arm64-graviton2
 virt: lxd
 script:
   - npm run lint || travis_terminate 1
+  - npm run test || travis_terminate 1
 deploy:
   provider: heroku
   app: powerful-harbor-93786

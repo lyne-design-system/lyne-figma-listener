@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 const PORT = process.env.PORT || 5000;
+const IS_TEST = process.env.TEST;
 
 const getCommitlintParserOptions = (opts) => {
   if (opts.parserPreset) {
@@ -87,6 +88,11 @@ app.post('/figma-change', (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+const serverInstance = app.listen(PORT, () => {
   console.log(`Listening to http://localhost:${PORT}.`);
+
+  if (IS_TEST) {
+    serverInstance.close();
+    console.log('Server closed again since this is only a test.');
+  }
 });
