@@ -7,7 +7,6 @@
     "lint": "npm run lint:yml && npm run lint:js",
     "lint:js": "eslint ./ --ext .js",
     "lint:yml": "eslint ./ --ext .yml,.yaml",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "semantic-release": "semantic-release"
   },
