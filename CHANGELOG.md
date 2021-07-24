@@ -1,3 +1,11 @@
+## [1.0.11](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.10...v1.0.11) (2021-07-24)
+
+
+### Bug Fixes
+
+* add test script to test start the server ([f3254c2](https://github.com/lyne-design-system/lyne-figma-listener/commit/f3254c2fa0088596745e67794024e75f0b97033e))
+* only deploy on master ([099ac2e](https://github.com/lyne-design-system/lyne-figma-listener/commit/099ac2ee8151b850ee480bb56a2a67bbdb16a06f))
+
 ## [1.0.10](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.9...v1.0.10) (2021-07-24)
 
 
