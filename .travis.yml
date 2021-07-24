@@ -10,8 +10,7 @@ deploy:
   provider: heroku
   app: powerful-harbor-93786
   strategy: git
-  on:
-    repo: lyne-design-system/lyne-figma-listener
+  on: master
   api_key: $HEROKU_TOKEN
 after_deploy:
   - npm run semantic-release || travis_terminate 1
