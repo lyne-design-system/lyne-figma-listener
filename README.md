@@ -5,12 +5,11 @@
 Express server listening to webhooks from Figma.
 
 - The webhook is triggered as soon as one of the Figma libraries is changed an published.
-- If received with correct payload, the travis job to build and publish design tokens or the the job to build and publish the icons is triggered. The payload must match one of the file names and passcode defined as env variables.
+- If received with correct payload, the travis job build and publish the icons is triggered. The payload must match one of the file names and passcode defined as env variables.
 - The server listens to POST requests on the route ```figma-change```.
 
 # Env variables
 `TRAVIS_TOKEN`: get it from user account settings on Travis. Used to trigger a build on Travis via API.
-`FIGMA_FILE_ID_TOKENS`: The name of the deisgn token library in Figma.
 `FIGMA_FILE_ID_ICONS`: The name of the icons library in Figma.
 `FIGMA_PASSCODE`: Passcode defined in Figma webhook during creation.
 
@@ -85,9 +84,9 @@ The Server is automatically deployed on Heroku via Travis CI as soon as changes 
 
 # CI/CD
 
-After the webhook from Figma (with the correct payload) is received by the server, the Travis job to build and deploy the design tokens or icons is triggered. Based on the filename, either the job for design tokens or the job for the icons is triggered.
+After the webhook from Figma (with the correct payload) is received by the server, the Travis job to build and deploy the icons is triggered.
 
-To test for example the trigger of Lyne Design Tokens locally during development, run the following curl command on the command line:
+To test for example the trigger of Lyne Icons locally during development, run the following curl command on the command line:
 
 ```bash
 body='{
@@ -101,5 +100,5 @@ curl -s -X POST \
    -H "Travis-API-Version: 3" \
    -H "Authorization: token TOKEN" \
    -d "$body" \
-   https://api.travis-ci.com/repo/lyne-design-system%2Flyne-design-tokens/requests
+   https://api.travis-ci.com/repo/lyne-design-system%2Flyne-icons/requests
 ```
