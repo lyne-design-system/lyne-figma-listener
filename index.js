@@ -46,26 +46,16 @@ app.get('/', (req, res) => {
 });
 
 app.post('/figma-change', (req, res) => {
-
-  const isFileTokens = req.body.file_key === process.env.FIGMA_FILE_ID_TOKENS;
   const isFileIcons = req.body.file_key === process.env.FIGMA_FILE_ID_ICONS;
-  const isValidFile = isFileTokens || isFileIcons;
   const isCorrectPasscode = req.body.passcode === process.env.FIGMA_PASSCODE;
   const commit = req.body.description;
 
-  if (!isValidFile || !isCorrectPasscode) {
+  if (!isFileIcons || !isCorrectPasscode) {
     console.log('Either wrong Figma passcode or wrong file key');
     res.sendStatus(400);
   } else {
-    let travisUrl;
-
-    if (isFileTokens) {
-      console.log('Will trigger travis job for design tokens');
-      travisUrl = 'https://api.travis-ci.com/repo/lyne-design-system%2Flyne-design-tokens/requests';
-    } else {
-      console.log('Will trigger travis job for icons');
-      travisUrl = 'https://api.travis-ci.com/repo/lyne-design-system%2Flyne-icons/requests';
-    }
+    console.log('Will trigger travis job for icons');
+    const travisUrl = 'https://api.travis-ci.com/repo/lyne-design-system%2Flyne-icons/requests';
 
     isValidSemanticCommit(commit)
       .then((result) => {
