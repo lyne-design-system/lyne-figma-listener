@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.9...v1.0.10) (2021-07-24)
+
+
+### Bug Fixes
+
+* remove logic to handle design tokens ([26d4e30](https://github.com/lyne-design-system/lyne-figma-listener/commit/26d4e30c432d015e10ec291dcad3a88dc731748c))
+
 ## [1.0.9](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.8...v1.0.9) (2021-07-23)
 
 
