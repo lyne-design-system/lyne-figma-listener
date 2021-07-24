@@ -8,6 +8,7 @@
     "lint:js": "eslint ./ --ext .js",
     "lint:yml": "eslint ./ --ext .yml,.yaml",
     "start": "node index.js",
+    "test": "TEST=true node index.js",
     "semantic-release": "semantic-release"
   },
   "repository": {
