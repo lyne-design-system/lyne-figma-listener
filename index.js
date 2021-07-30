@@ -51,6 +51,9 @@ app.post('/figma-change', (req, res) => {
   const isCorrectPasscode = req.body.passcode === process.env.FIGMA_PASSCODE;
   const commit = req.body.description;
 
+  console.log('--- REQUEST RECEIVED ---');
+  console.log(req);
+
   if (!isFileIcons || !isCorrectPasscode) {
     console.log('Either wrong Figma passcode or wrong file key');
     res.sendStatus(400);
