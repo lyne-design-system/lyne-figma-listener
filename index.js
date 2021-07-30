@@ -85,6 +85,7 @@ const triggerTravisJob = (commit, response) => {
 
 let pendingTimeout = false;
 let pendingCommitMessage = '';
+let pendingResponse = false;
 const pendingDuration = 15 * 1000;
 
 const triggerTravisJobDelayed = (commit, response) => {
@@ -93,13 +94,19 @@ const triggerTravisJobDelayed = (commit, response) => {
     clearTimeout(pendingTimeout);
   }
 
+  if (pendingResponse) {
+    pendingResponse.sendStatus(200);
+  }
+
+  pendingResponse = response;
+
   if (commit.length > 0) {
     pendingCommitMessage = commit;
   }
 
   pendingTimeout = setTimeout(() => {
     console.log(`FIGMA-LISTENER: -->> Webhook from Figma received. Waiting for ${pendingDuration} to see if another request comes in.`);
-    triggerTravisJob(pendingCommitMessage, response);
+    triggerTravisJob(pendingCommitMessage, pendingResponse);
 
     pendingTimeout = false;
     pendingCommitMessage = '';
