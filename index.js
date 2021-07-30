@@ -86,7 +86,7 @@ const pendingDuration = 15 * 1000;
 
 const triggerTravisJobDelayed = (commit, response) => {
   if (pendingTimeout) {
-    console.log('FIGMA-LISTENER: -->> Previous received Figma webhook canceld, since I just received a new webhook request.');
+    console.log('FIGMA-LISTENER: -->> Previous received Figma webhook canceled, since I just received a new webhook request.');
     clearTimeout(pendingTimeout);
   }
 
