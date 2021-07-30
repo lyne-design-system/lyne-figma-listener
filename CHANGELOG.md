@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.11...v1.1.0) (2021-07-30)
+
+
+### Bug Fixes
+
+* make sure to reset timeout and commit after timeout fired ([30f0b59](https://github.com/lyne-design-system/lyne-figma-listener/commit/30f0b59ce75cc87b9f7108564da062f8191dde0d))
+
+
+### Features
+
+* dealy travis trigger for 15 seconds and cancel any previous request ([f58f696](https://github.com/lyne-design-system/lyne-figma-listener/commit/f58f696633e1029c65a58a43bb47916e63d086c3))
+
 ## [1.0.11](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.10...v1.0.11) (2021-07-24)
 
 
