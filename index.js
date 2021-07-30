@@ -42,7 +42,7 @@ const isValidSemanticCommit = (commit) => {
     });
 };
 
-const triggerTravisJob = (commit, response) => {
+const triggerTravisJob = (commit) => {
 
   console.log('FIGMA-LISTENER: -->> Will trigger travis job for icons');
   const travisUrl = 'https://api.travis-ci.com/repo/lyne-design-system%2Flyne-icons/requests';
@@ -58,17 +58,14 @@ const triggerTravisJob = (commit, response) => {
           travisUrl
         })
           .then(() => {
-            // Figma needs status code 200 as answer
-            response.sendStatus(200);
+            console.log('FIGMA-LISTENER: -->> Successfully triggered Travis Job');
           })
           .catch(() => {
             console.log('FIGMA-LISTENER: -->> Error in Triggering Travis');
-            response.sendStatus(400);
           });
       } else {
         console.log('FIGMA-LISTENER: -->> Is not a valid commit:');
         console.log(commit);
-        response.sendStatus(400);
       }
     })
     .catch((error) => {
@@ -85,7 +82,6 @@ const triggerTravisJob = (commit, response) => {
 
 let pendingTimeout = false;
 let pendingCommitMessage = '';
-let pendingResponse = false;
 const pendingDuration = 15 * 1000;
 
 const triggerTravisJobDelayed = (commit, response) => {
@@ -94,11 +90,7 @@ const triggerTravisJobDelayed = (commit, response) => {
     clearTimeout(pendingTimeout);
   }
 
-  if (pendingResponse) {
-    pendingResponse.sendStatus(200);
-  }
-
-  pendingResponse = response;
+  response.sendStatus(200);
 
   if (commit.length > 0) {
     pendingCommitMessage = commit;
@@ -106,7 +98,7 @@ const triggerTravisJobDelayed = (commit, response) => {
 
   pendingTimeout = setTimeout(() => {
     console.log(`FIGMA-LISTENER: -->> Webhook from Figma received. Waiting for ${pendingDuration} to see if another request comes in.`);
-    triggerTravisJob(pendingCommitMessage, pendingResponse);
+    triggerTravisJob(pendingCommitMessage);
 
     pendingTimeout = false;
     pendingCommitMessage = '';
