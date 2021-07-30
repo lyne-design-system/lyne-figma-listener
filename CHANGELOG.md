@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.1.0...v1.1.1) (2021-07-30)
+
+
+### Bug Fixes
+
+* send response for cleared requests ([f66b4aa](https://github.com/lyne-design-system/lyne-figma-listener/commit/f66b4aa6810c23f28f6c4f7244b79da3fb6ff069))
+
 # [1.1.0](https://github.com/lyne-design-system/lyne-figma-listener/compare/v1.0.11...v1.1.0) (2021-07-30)
 
 
