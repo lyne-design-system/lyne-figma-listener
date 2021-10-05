@@ -24,7 +24,7 @@
   "homepage": "https://github.com/lyne-design-system/lyne-figma-listener#readme",
   "dependencies": {
     "@commitlint/cli": "~13.1.0",
-    "@commitlint/config-conventional": "~13.1.0",
+    "@commitlint/config-conventional": "~13.2.0",
     "@commitlint/lint": "~13.2.0",
     "@commitlint/load": "~13.2.0",
     "body-parser": "~1.19.0",
