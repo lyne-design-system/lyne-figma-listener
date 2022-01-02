@@ -40,6 +40,6 @@
     "husky": "~7.0.4",
     "lyne-helper-eslint-config": "~1.0.5",
     "semantic-release": "~18.0.1",
-    "semantic-release-slack-bot": "~3.2.0"
+    "semantic-release-slack-bot": "~3.3.0"
   }
 }
