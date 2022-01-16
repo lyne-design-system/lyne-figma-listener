@@ -28,7 +28,7 @@
     "@commitlint/lint": "~16.0.0",
     "@commitlint/load": "~16.0.0",
     "body-parser": "~1.19.1",
-    "dotenv": "~10.0.0",
+    "dotenv": "~12.0.3",
     "express": "~4.17.2",
     "lyne-helper-trigger-travis": "~1.0.6"
   },
