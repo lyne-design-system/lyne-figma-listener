@@ -29,7 +29,7 @@
     "@commitlint/load": "~16.2.3",
     "body-parser": "~1.20.0",
     "dotenv": "~16.0.0",
-    "express": "~4.17.3",
+    "express": "~4.18.1",
     "lyne-helper-trigger-travis": "~1.0.6"
   },
   "devDependencies": {
